@@ -8,6 +8,16 @@ Conditional Flexible Field is a custom [Contentful](https://www.contentful.com/)
 * Strong validation (required, per-venture uniqueness, reference requirements, and dropdown enforcement)
 * Built-in runtime debug logging to troubleshoot validation flow without redeploying the app
 
+### Where the app is installed
+
+Within Contentful, this app is registered as a **field location** app. The current configuration (shown in the screenshots above) enables the app for short text, long text, rich text, numbers, dates, booleans, JSON objects, and entry/media references so editors can benefit from the conditional logic everywhere it is needed. Instance parameters such as `conditionSourceFieldId`, `conditionTriggerValue`, `conditionOperator`, and the uniqueness flags are exposed so each field can customize its show/hide logic and validation without code changes.
+
+The app powers the following content types/fields:
+
+* **`igView` content type** – The `viewSlug` field uses the app to enforce required + per-venture uniqueness validation.
+* **All `igSection`-related content types** – Their `slug` field uses the same validation so sections cannot collide with the associated view slug.
+* **Conditional `igSection` fields** – The `viewAllAction`, `viewAllActionText`, and `expandedSectionLayoutType` fields use the app's conditional visibility to hide/show related configuration blocks depending on the section layout.
+
 ## Tech Stack
 
 | Layer | Technologies |
@@ -58,6 +68,7 @@ src/
 * **Required fields** – `CustomValidatorSingleLineField`, `CustomValidatorDropdownField`, and `CustomValidatorSingleRefField` mark fields invalid when empty and clear errors when the field is hidden. (`src/components/*`)
 * **Per-venture uniqueness** – The single-line validator queries the Contentful CMA with a list of content types and flags duplicates in the current venture (including a separate domain list). (`src/components/CustomValidatorSingleLineField.tsx`, `src/utils/queryContentTypes.ts`)
 * **Visibility-aware clearing** – Any time a condition hides the field, the validators reset the value and errors to avoid stale validation states. (`src/locations/Field.tsx`, `src/ValidationContext.tsx`)
+* **Centralized validation context** – The shared `ValidationContext` now owns the complete validation lifecycle so every validator writes to a single source of truth. This eliminates race conditions between components, keeps validation status synced with Contentful's `validationStatus` field automatically, and simplifies component code because they no longer juggle independent status flags. (`src/ValidationContext.tsx`)
 
 ### Debug logging
 
