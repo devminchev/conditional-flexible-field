@@ -1,0 +1,188 @@
+###############################################################################
+# GLOBAL OS FILES
+###############################################################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+###############################################################################
+# NODE / JAVASCRIPT / TYPESCRIPT
+###############################################################################
+
+# Dependencies
+node_modules/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Lock files (optional — keep if team uses one)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Output directories
+dist/
+build/
+out/
+coverage/
+.tmp/
+temp/
+.tmp-cache/
+
+# Next.js / Nuxt / Remix
+.next/
+.nuxt/
+.vercel/
+
+# Parcel / Webpack / Rollup
+.cache/
+parcel-cache/
+.rollup.cache/
+
+# SvelteKit / Astro
+.svelte-kit/
+.astro/
+
+###############################################################################
+# ENV & SENSITIVE FILES
+###############################################################################
+
+.env
+.env.*
+!.env.example      # Keep template
+.envrc
+*.pem
+*.key
+*.cert
+*.p12
+
+###############################################################################
+# PYTHON
+###############################################################################
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+env.bak/
+
+# Distribution / packaging
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+###############################################################################
+# EDITORS & IDEs
+###############################################################################
+
+# VS Code
+.vscode/
+.vscode-test/
+.history/
+
+# JetBrains (WebStorm, PyCharm, IntelliJ)
+.idea/
+*.iml
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+###############################################################################
+# DOCKER
+###############################################################################
+
+# Local docker files
+docker-compose.override.yml
+docker-data/
+docker-volumes/
+
+###############################################################################
+# TERRAFORM
+###############################################################################
+
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+
+###############################################################################
+# LOGS & RUNTIME FILES
+###############################################################################
+
+logs/
+*.log
+*.pid
+*.seed
+*.log.*
+
+###############################################################################
+# TESTING / COVERAGE
+###############################################################################
+
+coverage/
+.nyc_output/
+
+###############################################################################
+# MISC TOOLING
+###############################################################################
+
+# ESLint / Prettier cache
+.eslintcache
+.prettier-cache
+.stylelintcache
+
+# Storybook
+.storybook-out/
+storybook-static/
+
+# Cypress / Playwright
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+test-results/
+.trash/
+
+# Local environment
+.local/
+*.local
+*.tmp
+
+###############################################################################
+# GENERIC BACKUPS
+######################ƒ#########################################################
+
+*.bak
+*.tmp
+*.temp
+*.orig
+
+###############################################################################
+# GIT
+###############################################################################
+
+# Prevent committing merge conflict backups
+*.orig
